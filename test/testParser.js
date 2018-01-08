@@ -215,6 +215,15 @@ describe("error handling",function(){
       () => {
         kvParser.parse("key=")
       },
+      errorChecker("key",3,MissingValueError)),
+      "this is not working"
+  });
+
+  it("throws error on missing value when value is unquoted",function(){
+    assert.throws(
+      () => {
+        kvParser.parse("key=")
+      },
       errorChecker("key",3,MissingValueError))
   });
 
